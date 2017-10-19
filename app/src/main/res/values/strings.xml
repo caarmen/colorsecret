@@ -28,6 +28,7 @@
     <string name="score_totalScore">Total score: %d</string>
 
 
+    <string name="about_title">About</string>
     <string name="about_authorCopyright" translatable="false" tools:ignore="TypographyOther">Copyright (C) 2011–2016 Benoit \'BoD\' Lubek.</string>
     <string name="about_License" translatable="false">Licensed under the terms of the GNU General Public License.</string>
     <string name="about_email_text">Contact the author</string>

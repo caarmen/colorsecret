@@ -24,16 +24,6 @@
  */
 package org.jraf.android.colorsecret.app;
 
-import android.os.Handler;
-import android.os.StrictMode;
-
-import org.jraf.android.colorsecret.BuildConfig;
-import org.jraf.android.util.log.Log;
-
-import com.crashlytics.android.Crashlytics;
-
-import io.fabric.sdk.android.Fabric;
-
 public class Application extends android.app.Application {
     private static final String TAG = "ColorSecret";
 
@@ -41,32 +31,6 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        // Log
-        Log.init(this, TAG);
-
-        // Crash reporting
-        if (BuildConfig.CRASH_REPORT) {
-            // Crashlytics
-            try {
-                Fabric.with(this, new Crashlytics());
-            } catch (Throwable t) {
-                Log.w("Problem while initializing Crashlytics", t);
-            }
-        }
-
-        // Strict mode
-        if (BuildConfig.STRICT_MODE) setupStrictMode();
     }
 
-    private void setupStrictMode() {
-        // Do this in a Handler.post because of this issue: http://code.google.com/p/android/issues/detail?id=35298
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                // Do not detect disk reads/writes because it seems it causes bugs in Google Maps (?!)
-                StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
-                StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
-            }
-        });
-    }
 }

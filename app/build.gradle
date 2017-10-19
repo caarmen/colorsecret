@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion project.compileSdkVersion
@@ -8,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId 'org.jraf.android.colorsecret'
-        minSdkVersion 9
+        minSdkVersion 7
         targetSdkVersion targetSdkVersion
         versionCode buildNumber
         versionName buildProperties.versionName
@@ -53,8 +52,9 @@ android {
     }
 
     dataBinding {
-        enabled = true
+        enabled = false
     }
+    buildToolsVersion '25.0.0'
 }
 
 android.applicationVariants.all { variant ->
@@ -88,6 +88,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile "com.android.support:support-v4:${supportLibVersion}"
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') { transitive = true; }
-    compile 'com.github.BoD:jraf-android-util:-SNAPSHOT'
 }

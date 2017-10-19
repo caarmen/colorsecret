@@ -24,12 +24,11 @@
  */
 package org.jraf.android.colorsecret.model;
 
+import org.jraf.android.colorsecret.model.Board.Row;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import org.jraf.android.colorsecret.model.Board.Row;
-import org.jraf.android.util.log.Log;
 
 /**
  * Represents an ongoing game.
@@ -67,7 +66,6 @@ public class Game {
         for (int i = 0; i < mNbHoles; i++) {
             secret.add(values[random.nextInt(values.length)]);
         }
-        Log.d("Secret: %s", secret);
         mBoard.getSecretRow().setCodePegs(secret.toArray(new CodePeg[mNbHoles]));
     }
 

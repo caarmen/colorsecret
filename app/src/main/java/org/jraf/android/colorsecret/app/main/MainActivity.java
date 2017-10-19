@@ -24,10 +24,7 @@
  */
 package org.jraf.android.colorsecret.app.main;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Random;
-
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -36,7 +33,6 @@ import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -55,8 +51,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.jraf.android.colorsecret.BuildConfig;
 import org.jraf.android.colorsecret.Constants;
 import org.jraf.android.colorsecret.R;
 import org.jraf.android.colorsecret.model.CodePeg;
@@ -68,9 +64,12 @@ import org.jraf.android.colorsecret.util.PegUtil;
 import org.jraf.android.colorsecret.util.SoundUtil;
 import org.jraf.android.colorsecret.util.StringUtil;
 import org.jraf.android.colorsecret.util.UiUtil;
-import org.jraf.android.util.about.AboutActivityIntentBuilder;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.IOException;
+import java.util.List;
+import java.util.Random;
+
+public class MainActivity extends Activity {
     private static final int DIALOG_PICK_PEG = 0;
     private static final int DIALOG_GAME_OVER = 1;
     private static final int DIALOG_YOU_WON = 2;
@@ -668,19 +667,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onAboutClicked() {
-        AboutActivityIntentBuilder builder = new AboutActivityIntentBuilder();
-        builder.setAppName(getString(R.string.app_name));
-        builder.setBuildDate(BuildConfig.BUILD_DATE);
-        builder.setGitSha1(BuildConfig.GIT_SHA1);
-        builder.setAuthorCopyright(getString(R.string.about_authorCopyright));
-        builder.setLicense(getString(R.string.about_License));
-        builder.setShareTextSubject(getString(R.string.about_shareText_subject));
-        builder.setShareTextBody(getString(R.string.about_shareText_body));
-        builder.addLink(getString(R.string.about_email_uri), getString(R.string.about_email_text));
-        builder.addLink(getString(R.string.about_web_uri), getString(R.string.about_web_text));
-        builder.addLink(getString(R.string.about_sources_uri), getString(R.string.about_sources_text));
-        builder.setIsLightIcons(false);
-        startActivity(builder.build(this));
+        Toast.makeText(this, "Jraf utils is broken", Toast.LENGTH_LONG).show();
     }
 
     /*

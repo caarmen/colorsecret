@@ -6,13 +6,7 @@
     <application
         android:name=".app.Application"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light">
-
-        <!-- Crashlytics api key -->
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="${apiKeyFabric}" />
+        android:label="@string/app_name">
 
         <!-- Main activity -->
         <activity
